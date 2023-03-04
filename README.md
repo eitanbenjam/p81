@@ -40,6 +40,11 @@ it has 2 apis:
 
 on other urls it fetch client ip (is AWS: uses X-Forwarded-For header , else get it from flask)
 
+## Docker
+Dockerfile will create docker image.
+image based on python:3.8-slim-buster, flask is installed, echo_server.py and indec.html are copied to image
+echo_server.py will run as eitan user (defined and created in Dockerfile)
+
 ## HELM
 chart as 3 template:
 1. configMap.yaml - specify the deploy_mode env param
