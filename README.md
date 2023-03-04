@@ -25,9 +25,9 @@ load_balancer_url = "earnixAlb-1171883708.us-east-1.elb.amazonaws.com"
 ```
 to test:
 open browser and browse to:
-1. http://<loadbalancer-dns>/index.html
+1. http://{loadbalancer-dns}/index.html
    you should get html file that says hello from eitan
-2. http://<loadbalancer-dns>/<something>
+2. http://{loadbalancer-dns}/<something>
    you should get info about your location
 ## Script:
 echo_server.py is a python script that uses flask library as http server.
