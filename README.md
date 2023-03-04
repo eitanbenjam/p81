@@ -23,6 +23,13 @@ at the end you will see load-balancer DNS address
 Outputs:
 load_balancer_url = "earnixAlb-1171883708.us-east-1.elb.amazonaws.com"
 ```
+
+to delete cluster and all the resource:
+```
+terraform destroy -auto-approve # will remove deployment
+```
+
+
 to test:
 open browser and browse to:
 1. http://{loadbalancer-dns}/index.html
@@ -52,7 +59,7 @@ all values can be set in values.yaml
 1. VPC - module that build a VPC with all the subnets
 2. HELM - module that bring up helm chart and connect it to load balancer (create target group and add it to listener)
 3. EKS - an existing module from https://github.com/terraform-aws-modules/terraform-aws-eks.git?ref=v19.10.0 that create EKS cluster
-### resource (in all.tf):
+### resources (in all.tf):
 1. eks security group - allow 443 and 80 from outside, and kubernetes internal communication
 2. alb security group - allow 443 and 80 from internet
 3. application load balancer - for internet requetsts
