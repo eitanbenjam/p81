@@ -24,12 +24,6 @@ Outputs:
 load_balancer_url = "earnixAlb-1171883708.us-east-1.elb.amazonaws.com"
 ```
 
-to delete cluster and all the resource:
-```
-terraform destroy -auto-approve # will remove deployment
-```
-
-
 to test:
 open browser and browse to:
 1. http://{loadbalancer-dns}/index.html
@@ -67,4 +61,13 @@ all values can be set in values.yaml
 
 ## EKS
 the docker image should already exist in ECR , it you dont have ECR there is terraform deployment to start it under ecr folder 
+
+
+## Removing The Cluster
+to delete cluster and all the resource:
+```
+terraform destroy -auto-approve # will remove deployment
+```
+
+terrafrom will delete each resource in AWS
 
