@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eitan-perimeter81-task-deployment
+  namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/version: "1.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: eitan-perimeter81-task
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: eitan-perimeter81-task-deploy
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: eitan-perimeter81-task-deploy
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: eitan-perimeter81-task
+          image: "{{ .Values.repository }}/eitan-perimeter81-task:{{ .Values.tag }}"
+          imagePullPolicy: "{{ .Values.pullPolicy }}"
+          ports: 
+            - containerPort: 9996
+              name: http
+              protocol: TCP
+          env:
+            - name: DEPLOY_MODE
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-eitan-perimeter81-task
+                  key: deploy_mode
+             
+          
+          livenessProbe: 
+            httpGet:
+              path: /index.html
+              port: 9996
+            initialDelaySeconds: 30
+            periodSeconds: 60
+          resources: 
+            limits:
+              cpu: '500m'
+              memory: '512M'
+            requests:
+              cpu: '100m'
+              memory: '50M'
+      
