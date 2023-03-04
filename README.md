@@ -1,11 +1,11 @@
-# perimeter_eitan
+# perimeter81_eitan
 # repository goal
 Create python script that return index.html file incase url is /index.htlm , else return the client geo location
 1. script should run as a docker container
 2. docker container should run in kubernetes
 ## Installation
 
-in order to run the earnix_eitan server u need to perform the following steps:
+in order to run the echo_script server u need to perform the following steps:
 1. clone repository :
 ```
 git clone git clone https://github.com/eitanbenjam/p81.git
