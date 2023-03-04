@@ -21,7 +21,7 @@ terraform will start deploying all the component
 at the end you will see load-balancer DNS address
 ```
 Outputs:
-load_balancer_url = "earnixAlb-1171883708.us-east-1.elb.amazonaws.com"
+load_balancer_url = "eitan-alb-1506286709.us-east-2.elb.amazonaws.com"
 ```
 
 to test:
