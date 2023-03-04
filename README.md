@@ -32,8 +32,8 @@ open browser and browse to:
 ## Script:
 echo_server.py is a python script that uses flask library as http server.
 it has 2 apis:
-//index.html - will load the index.html file and send it as a response
-//isAlive - for kubernetes isAlive machanism
+\/index.html - will load the index.html file and send it as a response
+\/isAlive - for kubernetes isAlive machanism
 on other urls it fetch client ip (is AWS: uses X-Forwarded-For header , else get it from flask)
 
 ## HELM
